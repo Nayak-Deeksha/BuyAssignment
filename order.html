@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>form</title>
+    <link rel="stylesheet" href="./style2.css">
+</head>
+
+<body>
+    <div class = "form">
+        <form id = "info" action="./shop.html">
+            <h1>ORDER CONFIRMATION</h1>
+            <input type="text" id="cust-name" placeholder="Your Name" required />
+            <select id="categories" onchange="getselectedvalue();">
+                <option value="">Select the category</option>
+                <option value="phones">Phones</option>
+                <option value="home">Home Utilities</option>
+                <option value="toys">Toys</option>
+                <option value="jewelry">jewelry</option>
+                <option value="shoes">Shoes</option>
+                <option value="cars">Cars</option>
+            </select>
+            <select id="product" disabled>
+                <option claue="">Select the product</option>
+            </select>
+            <input type="number" id="stock" placeholder="Stock" required />
+            <input type="submit" id="submit" value="CONFIRM" onClick="window.location.reload();"/>
+        </form>  
+        <a href="./shop.html"><button type="submit">BACK</button></a>
+    </div>
+    <script>
+        function getselectedvalue() {
+            var selectedval = document.getElementById("categories").value,
+            category_array = localStorage.getItem("categories");
+            document.getElementById("product").disabled = (this.value === '0');
+            var i,key,keyi,newDiv,child_opt;
+            if(category_array.includes(selectedval)){
+                for(i=0; i<localStorage.length; i++) {
+                    key = localStorage.key(i);
+                    keyi = JSON.parse(localStorage.getItem(key));                        
+                    if(selectedval === keyi.category){    
+                        newDiv = document.createElement("option");
+                        newDiv.className = "childDiv";
+                        product.appendChild(newDiv);
+                        child_opt = document.createElement("div");
+                        child_opt.className = "child_opt";
+                        child_opt.innerHTML = keyi.name;
+                        newDiv.appendChild(child_opt);   
+                    }
+                }           
+            }
+            else
+            console.log("not found");
+        }
+        var sub = document.getElementById("submit");
+        sub.addEventListener("click", function (e) {
+            e.preventDefault();
+            var name = document.getElementById("product").value,
+            stock = document.getElementById("stock").value,
+            cust_name = document.getElementById("cust-name").value;
+            var st,category,stockval,stock1,arr,cat_content,cost,category_array;
+            st = localStorage.getItem(name);
+            category_array = JSON.parse(st);
+            stockval = parseInt(category_array["stock"]);
+            stock1 = stockval - parseInt(stock);
+            if(!(stock1 < 0)) {
+                category_array.stock = stock1;
+                localStorage.setItem(name, JSON.stringify(category_array));
+                arr = JSON.parse(localStorage.getItem("cust_name")) || [];
+                arr.push(cust_name);
+                cat_content = JSON.stringify(arr);
+                localStorage.setItem("cust_name",cat_content); 
+                cost = stock * category_array.price;
+                alert("Successful Shopping . You spent " + cost + " Rupees");
+            }
+            else
+                alert('Out of stock! We have' + stockval + " " + name);
+        });
+        </script>
+</body>
+
+</html>

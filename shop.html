@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SHOP</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+				<ul class="navbar-right">
+					<li><a class="nav" href="#">Home</a></li>
+					<li><a class="nav" id = "login" href="#">Login</a></li>
+					<li><a class="nav" href="#">Sign Up</a></li>
+					<li><a class="nav" href="#">About</a></li>
+					<li><a class="nav" href="#">Contact</a></li>
+				</ul>
+      </nav>
+      <div id="container">
+        <div class="container-left"></div> 
+        <div class="container-right">
+          <p>Buy,</p>
+          <p>Sell</p>
+          <p>And Find</p>
+          <p>Just About</p> 
+          <p>Anything</p>
+            <a href="./new1.html"><button class="button" type="submit">ADD PRODUCT</button></a>
+            <a href="./order.html"><button class="button" type="submit">BUY PRODUCT</button></a>   
+        </div>
+      </div>
+  <div class="form-popup" id="myForm">
+    <form action="#" class="form-container">
+      <input type="text" placeholder="Enter Username" name="name" required>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+      <button type="submit" class="btn">Login</button>
+      <button type="submit" class="btn cancel" id = "cancel">Close</button>
+    </form>
+  </div>
+  <script>
+    var login = document.getElementById("login");
+    var close = document.getElementById("cancel");
+    var container = document.getElementById("container");
+    login.addEventListener("click",
+  function openForm() {
+  document.getElementById("myForm").style.display = "block";
+  container.style.opacity = 0.3;
+  });
+
+    close.addEventListener("click", function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+      container.style.opacity = 1;
+    });
+    </script>
+</body>
+
+</html>

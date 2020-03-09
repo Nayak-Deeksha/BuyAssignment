@@ -1,0 +1,162 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+body {
+    text-align:center;
+    background-color:#f2f2f2;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+      color:grey;
+  }
+  
+  .navbar-right {
+    list-style-type: none;
+    display: inline-block;
+    
+}
+.navbar-right li {
+    display:inline-block;
+}
+.nav {
+    display: inline-block;
+    text-transform:uppercase;
+    font-size:15px;
+    padding: 8px 16px;
+    text-decoration: none;
+    box-sizing:border-box;
+    font-family: 'playfair display',serif;
+    font-weight:600;
+}
+.nav:hover {
+    color:#ffc299;
+}
+#container {
+  display:flex;
+  justify-content: center;
+}
+.container-left {
+  width:40%;
+  height:95vh;
+  background-image: url(./bck6.jpeg);
+  background-position-y: -100px;
+  background-size:cover;
+}
+.container-right {
+  width:40%;
+  height:95vh;
+  background-color:#c1f0f0;
+  text-align:left;
+  padding-left:5%;
+  padding-top:8%;
+  font: normal small-caps normal 68px/1.5 'playfair display',serif; /*style caps varient size/line-height font*/
+  font-weight: 500;
+  color: #292F2F;
+  box-sizing: border-box;
+}
+.button {
+    display:block;
+    padding: 20px;
+    background-color: #D1C2C2;
+    font:inherit;
+    /* font-weight: 600; */
+    font-size: 24px; 
+    border:none;
+    width:300px;
+    margin-top:5%;
+    /* color:white; */
+    background-color: #ffc299;
+}
+.button:hover {
+    opacity:0.6;
+}
+  /* The popup form - hidden by default */
+  .form-popup {
+    display: none;
+    position: absolute;
+    top:30%;
+    left:40%;
+    box-shadow:5px 5px 5px 5px #616060; /*horizontal offset, vertical offset, blur radius, spread radius, color*/
+  }
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 400px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+  }
+  .form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 5%;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #e6e1e1;
+    box-sizing:border-box;
+    opacity:0.6;
+  }
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    border:2px solid rgb(173, 228, 210);
+    outline: none;
+  }
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    background-color: rgb(124, 235, 201);
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+  }
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: rgb(226, 119, 119);
+  }
+  
+  /* Add some hover effects to buttons */
+.btn:hover{
+    opacity: 0.5;
+  }
+

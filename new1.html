@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>form</title>
+    <link rel="stylesheet" href="./style2.css">
+</head>
+<body>
+    <div class="form">
+        <h1>PRODUCT INFO</h1>
+        <form>
+            <select id="category" required>
+                <option value="">Select the category</option>
+                <option value="phones">Phones</option>
+                <option value="home">Home Utilities</option>
+                <option value="toys">Toys</option>
+                <option value="jewelry">jewelry</option>
+                <option value="shoes">Shoes</option>
+                <option value="cars">Cars</option>
+            </select>
+            <input type="text" id="name" placeholder="Product Name" required />
+            <input type="number" id="price" placeholder="Price" required />
+            <input type="number" id="stock" placeholder="Stock" required />
+            <input type="submit" id="submit" value="SUBMIT">
+        </form>
+        <a href="./shop.html"><button type="submit">BACK</button></a>
+    </div>
+    <script>
+        var sub = document.getElementById("submit");
+        sub.addEventListener("click", function (e) {
+            e.preventDefault();
+            var name = document.getElementById("name").value,
+            category = document.getElementById("category").value,
+            stock = document.getElementById("stock").value,
+            price = document.getElementById("price").value;
+            document.querySelector('form').reset();
+            var arr, cat_content, content, content1, productname, product, stockval, stock1;
+            if(!(name=="" || category=="" || (stock ==0 || stock< 0) || (price==0 || price<0))){
+            arr = JSON.parse(localStorage.getItem("categories")) || [];
+            if (!(arr.includes(category))) {
+                arr.push(category);
+                cat_content = JSON.stringify(arr);
+               localStorage.setItem("categories", cat_content);
+            }
+            if (!(name in localStorage)) {
+                content = {
+                    "name": name,
+                    "category": category,
+                    "price": price,
+                    "stock": "0"
+                }
+                content1 = JSON.stringify(content);
+                localStorage.setItem(name, content1);
+            }
+            productname = localStorage.getItem(name);
+            product = JSON.parse(productname);
+            stockval = parseInt(product["stock"]);
+            stock1 = parseInt(stock) + stockval;
+            content = {
+                "name": name,
+                "category": category,
+                "price": price,
+                "stock": stock1
+            }
+            content1 = JSON.stringify(content);
+            localStorage.setItem(name, content1);
+         }
+         else 
+         alert('Error') 
+         });
+    </script>
+</body>
+
+</html>
